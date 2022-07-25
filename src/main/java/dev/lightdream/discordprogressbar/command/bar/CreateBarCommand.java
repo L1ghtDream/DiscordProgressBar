@@ -1,4 +1,4 @@
-package dev.lightdream.discordprogressbar.command;
+package dev.lightdream.discordprogressbar.command.bar;
 
 import dev.lightdream.discordprogressbar.Main;
 import dev.lightdream.discordprogressbar.manager.BarHelper;
@@ -12,9 +12,10 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 import java.util.Arrays;
 
+@SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class CreateBarCommand extends DiscordCommand {
     public CreateBarCommand() {
-        super(Main.instance, Arrays.asList("create-bar", "createbar"), "Creates new progress bar", Permission.ADMINISTRATOR, true, Arrays.asList(
+        super(Main.instance, Arrays.asList("create-bar"), "Creates new progress bar", Permission.ADMINISTRATOR, true, Arrays.asList(
                 new CommandArgument(OptionType.STRING, "name", "Create a new progressbar", true),
                 new CommandArgument(OptionType.CHANNEL, "channel", "The channel where the bar will be created", false)
         ));

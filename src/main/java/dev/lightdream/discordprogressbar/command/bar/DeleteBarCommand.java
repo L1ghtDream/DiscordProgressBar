@@ -1,4 +1,4 @@
-package dev.lightdream.discordprogressbar.command;
+package dev.lightdream.discordprogressbar.command.bar;
 
 import dev.lightdream.discordprogressbar.Main;
 import dev.lightdream.discordprogressbar.manager.BarHelper;
@@ -11,9 +11,10 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 import java.util.Arrays;
 
+@SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class DeleteBarCommand extends DiscordCommand {
     public DeleteBarCommand() {
-        super(Main.instance, Arrays.asList("delete-bar", "deletebar"), "Deleted progress bar", Permission.ADMINISTRATOR, true, Arrays.asList(
+        super(Main.instance, Arrays.asList("delete-bar"), "Deleted progress bar", Permission.ADMINISTRATOR, true, Arrays.asList(
                 new CommandArgument(OptionType.STRING, "name", "Create a new progressbar", true)
         ));
     }

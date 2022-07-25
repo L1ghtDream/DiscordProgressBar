@@ -43,6 +43,12 @@ public class Config extends JDAConfig {
     @Expose
     private JDAEmbed barEmbed = JDAEmbed.black("%title%", "");
 
+    public JDAEmbed announceSent = JDAEmbed.green("Success", "Announce sent");
+    public JDAEmbed messageNotFound = JDAEmbed.red("Error", "Message id is not valid");
+    public JDAEmbed invalidChannel = JDAEmbed.red("Error", "Channel is not valid.");
+
+    public Long announceChannelId = 833683511977574490L;
+
     public EmbedBuilder getBarEmbed(String title, String image) {
         return barEmbed.clone()
                 .parse("title", title)

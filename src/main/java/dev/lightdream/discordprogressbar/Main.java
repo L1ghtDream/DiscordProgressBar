@@ -1,8 +1,9 @@
 package dev.lightdream.discordprogressbar;
 
-import dev.lightdream.discordprogressbar.command.CreateBarCommand;
-import dev.lightdream.discordprogressbar.command.DeleteBarCommand;
-import dev.lightdream.discordprogressbar.command.UpdateBarCommand;
+import dev.lightdream.discordprogressbar.command.announcer.AnnounceCommand;
+import dev.lightdream.discordprogressbar.command.bar.CreateBarCommand;
+import dev.lightdream.discordprogressbar.command.bar.DeleteBarCommand;
+import dev.lightdream.discordprogressbar.command.bar.UpdateBarCommand;
 import dev.lightdream.discordprogressbar.dto.config.Config;
 import dev.lightdream.discordprogressbar.dto.config.Data;
 import dev.lightdream.filemanager.FileManager;
@@ -45,7 +46,8 @@ public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
         new DiscordCommandManager(this, Arrays.asList(
                 new CreateBarCommand(),
                 new DeleteBarCommand(),
-                new UpdateBarCommand()
+                new UpdateBarCommand(),
+                new AnnounceCommand()
         ));
     }
 
