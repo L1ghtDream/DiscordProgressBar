@@ -17,7 +17,7 @@ public class AnnounceCommand extends DiscordCommand {
     public AnnounceCommand() {
         super(Main.instance, Arrays.asList("announce"), "Creates a new announcement", Permission.ADMINISTRATOR, true, Arrays.asList(
                 new CommandArgument(OptionType.STRING, "message_id", "Create a new progressbar", true),
-                new CommandArgument(OptionType.CHANNEL, "channel", "Create a new progressbar", false)
+                new CommandArgument(OptionType.STRING, "channel_id", "Create a new progressbar", false)
         ));
     }
 
@@ -33,14 +33,18 @@ public class AnnounceCommand extends DiscordCommand {
         }
 
         channel.retrieveMessageById(id).queue(message -> {
-            OptionMapping textChannelOption = guildCommandContext.getArgument("channel");
+            OptionMapping chanelIDOption = guildCommandContext.getArgument("channel_id");
+            Long channelID = null;
+            if (chanelIDOption != null) {
+                channelID = Long.parseLong(guildCommandContext.getArgument("channel_id").getAsString());
+            }
             BaseGuildMessageChannel textChannel;
 
-            if (textChannelOption != null) {
-                try{
-                    textChannel = textChannelOption.getAsTextChannel();
-                }catch (Exception e){
-                    textChannel = textChannelOption.getAsNewsChannel();
+            if (channelID != null) {
+                try {
+                    textChannel = Main.instance.bot.getTextChannelById(channelID);
+                } catch (Exception e) {
+                    textChannel = Main.instance.bot.getNewsChannelById(channelID);
                 }
             } else {
                 if (Main.instance.config.isNews) {
