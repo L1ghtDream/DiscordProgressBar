@@ -25,13 +25,21 @@ public class AnnounceCommand extends DiscordCommand {
     public void executeGuild(GuildCommandContext guildCommandContext) {
         long id = Long.parseLong(guildCommandContext.getArgument("message_id").getAsString());
 
-        guildCommandContext.getTextChannel().retrieveMessageById(id).queue(message -> {
+        BaseGuildMessageChannel channel;
+        try {
+            channel = guildCommandContext.getTextChannel();
+        } catch (Exception e) {
+            channel = guildCommandContext.getEvent().getNewsChannel();
+        }
+
+        channel.retrieveMessageById(id).queue(message -> {
             OptionMapping textChannelOption = guildCommandContext.getArgument("channel");
             BaseGuildMessageChannel textChannel;
 
             if (textChannelOption != null) {
-                textChannel = textChannelOption.getAsTextChannel();
-                if(textChannel==null){
+                try{
+                    textChannel = textChannelOption.getAsTextChannel();
+                }catch (Exception e){
                     textChannel = textChannelOption.getAsNewsChannel();
                 }
             } else {
