@@ -1,9 +1,8 @@
-package dev.lightdream.discordprogressbar.dto.config;
+package dev.lightdream.discordbot.dto.config;
 
 import com.google.gson.annotations.Expose;
 import dev.lightdream.jdaextension.dto.JDAConfig;
 import dev.lightdream.jdaextension.dto.JDAEmbed;
-import dev.lightdream.logger.Logger;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.util.HashMap;
@@ -48,6 +47,7 @@ public class Config extends JDAConfig {
     public JDAEmbed invalidChannel = JDAEmbed.red("Error", "Channel is not valid.");
 
     public Long announceChannelId = 833683511977574490L;
+    public boolean isNews = true;
 
     public EmbedBuilder getBarEmbed(String title, String image) {
         return barEmbed.clone()

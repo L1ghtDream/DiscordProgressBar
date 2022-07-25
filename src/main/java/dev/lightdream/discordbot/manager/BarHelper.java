@@ -1,7 +1,7 @@
-package dev.lightdream.discordprogressbar.manager;
+package dev.lightdream.discordbot.manager;
 
-import dev.lightdream.discordprogressbar.Main;
-import dev.lightdream.discordprogressbar.dto.Bar;
+import dev.lightdream.discordbot.Main;
+import dev.lightdream.discordbot.dto.Bar;
 import net.dv8tion.jda.api.entities.MessageChannel;
 
 public class BarHelper {

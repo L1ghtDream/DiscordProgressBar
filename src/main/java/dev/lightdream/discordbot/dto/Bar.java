@@ -1,6 +1,6 @@
-package dev.lightdream.discordprogressbar.dto;
+package dev.lightdream.discordbot.dto;
 
-import dev.lightdream.discordprogressbar.Main;
+import dev.lightdream.discordbot.Main;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;

@@ -1,11 +1,11 @@
-package dev.lightdream.discordprogressbar;
+package dev.lightdream.discordbot;
 
-import dev.lightdream.discordprogressbar.command.announcer.AnnounceCommand;
-import dev.lightdream.discordprogressbar.command.bar.CreateBarCommand;
-import dev.lightdream.discordprogressbar.command.bar.DeleteBarCommand;
-import dev.lightdream.discordprogressbar.command.bar.UpdateBarCommand;
-import dev.lightdream.discordprogressbar.dto.config.Config;
-import dev.lightdream.discordprogressbar.dto.config.Data;
+import dev.lightdream.discordbot.command.announcer.AnnounceCommand;
+import dev.lightdream.discordbot.command.bar.CreateBarCommand;
+import dev.lightdream.discordbot.command.bar.DeleteBarCommand;
+import dev.lightdream.discordbot.command.bar.UpdateBarCommand;
+import dev.lightdream.discordbot.dto.config.Config;
+import dev.lightdream.discordbot.dto.config.Data;
 import dev.lightdream.filemanager.FileManager;
 import dev.lightdream.filemanager.FileManagerMain;
 import dev.lightdream.jdaextension.JDAExtensionMain;

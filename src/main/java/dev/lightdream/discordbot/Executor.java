@@ -1,4 +1,4 @@
-package dev.lightdream.discordprogressbar;
+package dev.lightdream.discordbot;
 
 public class Executor {
 

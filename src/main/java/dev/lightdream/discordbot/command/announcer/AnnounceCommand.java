@@ -1,12 +1,12 @@
-package dev.lightdream.discordprogressbar.command.announcer;
+package dev.lightdream.discordbot.command.announcer;
 
-import dev.lightdream.discordprogressbar.Main;
+import dev.lightdream.discordbot.Main;
 import dev.lightdream.jdaextension.commands.DiscordCommand;
 import dev.lightdream.jdaextension.dto.CommandArgument;
 import dev.lightdream.jdaextension.dto.context.GuildCommandContext;
 import dev.lightdream.jdaextension.dto.context.PrivateCommandContext;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.BaseGuildMessageChannel;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 
@@ -26,12 +26,20 @@ public class AnnounceCommand extends DiscordCommand {
         long id = Long.parseLong(guildCommandContext.getArgument("message_id").getAsString());
 
         guildCommandContext.getTextChannel().retrieveMessageById(id).queue(message -> {
-            OptionMapping texChannelOption = guildCommandContext.getArgument("channel");
-            TextChannel textChannel;
-            if (texChannelOption != null) {
-                textChannel = texChannelOption.getAsTextChannel();
+            OptionMapping textChannelOption = guildCommandContext.getArgument("channel");
+            BaseGuildMessageChannel textChannel;
+
+            if (textChannelOption != null) {
+                textChannel = textChannelOption.getAsTextChannel();
+                if(textChannel==null){
+                    textChannel = textChannelOption.getAsNewsChannel();
+                }
             } else {
-                textChannel = Main.instance.bot.getTextChannelById(Main.instance.config.announceChannelId);
+                if (Main.instance.config.isNews) {
+                    textChannel = Main.instance.bot.getNewsChannelById(Main.instance.config.announceChannelId);
+                } else {
+                    textChannel = Main.instance.bot.getTextChannelById(Main.instance.config.announceChannelId);
+                }
             }
 
             if (textChannel == null) {
