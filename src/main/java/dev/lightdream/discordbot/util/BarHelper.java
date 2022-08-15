@@ -1,4 +1,4 @@
-package dev.lightdream.discordbot.manager;
+package dev.lightdream.discordbot.util;
 
 import dev.lightdream.discordbot.Main;
 import dev.lightdream.discordbot.dto.Bar;

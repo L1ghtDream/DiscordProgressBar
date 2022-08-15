@@ -21,9 +21,16 @@
     </repositories>
 
     <dependencies>
+
+        <!-- LightDream -->
         <dependency>
             <groupId>dev.lightdream</groupId>
             <artifactId>JDAExtension</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.lightdream</groupId>
+            <artifactId>MessageBuilder</artifactId>
             <version>LATEST</version>
         </dependency>
     </dependencies>

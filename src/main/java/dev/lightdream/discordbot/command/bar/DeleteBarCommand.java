@@ -1,7 +1,7 @@
 package dev.lightdream.discordbot.command.bar;
 
 import dev.lightdream.discordbot.Main;
-import dev.lightdream.discordbot.manager.BarHelper;
+import dev.lightdream.discordbot.util.BarHelper;
 import dev.lightdream.jdaextension.commands.DiscordCommand;
 import dev.lightdream.jdaextension.dto.CommandArgument;
 import dev.lightdream.jdaextension.dto.context.GuildCommandContext;

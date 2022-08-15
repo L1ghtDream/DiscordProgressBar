@@ -3,6 +3,7 @@ package dev.lightdream.discordbot.dto.config;
 import com.google.gson.annotations.Expose;
 import dev.lightdream.jdaextension.dto.JDAConfig;
 import dev.lightdream.jdaextension.dto.JDAEmbed;
+import dev.lightdream.messagebuilder.MessageBuilder;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.util.HashMap;
@@ -54,5 +55,9 @@ public class Config extends JDAConfig {
                 .parse("title", title)
                 .build().setImage(image);
     }
+
+    public Long playerCountChanelID = 0L;
+    public MessageBuilder playerCountString = new MessageBuilder( "Online Players: %count%");
+    public String playerCountServerIP = "original.gg";
 
 }

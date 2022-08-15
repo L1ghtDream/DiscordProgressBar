@@ -6,6 +6,7 @@ import dev.lightdream.discordbot.command.bar.DeleteBarCommand;
 import dev.lightdream.discordbot.command.bar.UpdateBarCommand;
 import dev.lightdream.discordbot.dto.config.Config;
 import dev.lightdream.discordbot.dto.config.Data;
+import dev.lightdream.discordbot.manager.ScheduleManager;
 import dev.lightdream.filemanager.FileManager;
 import dev.lightdream.filemanager.FileManagerMain;
 import dev.lightdream.jdaextension.JDAExtensionMain;
@@ -13,7 +14,9 @@ import dev.lightdream.jdaextension.dto.JDAConfig;
 import dev.lightdream.jdaextension.managers.DiscordCommandManager;
 import dev.lightdream.logger.LoggableMain;
 import dev.lightdream.logger.Logger;
+import dev.lightdream.messagebuilder.MessageBuilderManager;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.MessageBuilder;
 
 import java.io.File;
 import java.util.Arrays;
@@ -33,12 +36,14 @@ public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
 
     // Manager
     public FileManager fileManager;
+    public ScheduleManager scheduleManager;
 
     public void enable() {
         instance = this;
         Logger.init(this);
 
         fileManager = new FileManager(this);
+        MessageBuilderManager.init(fileManager);
         loadConfigs();
 
         bot = JDAExtensionMain.generateBot(this);
@@ -49,6 +54,8 @@ public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
                 new UpdateBarCommand(),
                 new AnnounceCommand()
         ));
+
+        scheduleManager = new ScheduleManager();
     }
 
     private void loadConfigs() {
