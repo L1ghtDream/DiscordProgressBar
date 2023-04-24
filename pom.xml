@@ -16,7 +16,7 @@
     <repositories>
         <repository>
             <id>lightdream-repo</id>
-            <url>https://repo.lightdream.dev/repository/LightDream-API/</url>
+            <url>https://repo.lightdream.dev/</url>
         </repository>
     </repositories>
 
@@ -25,13 +25,13 @@
         <!-- LightDream -->
         <dependency>
             <groupId>dev.lightdream</groupId>
-            <artifactId>JDAExtension</artifactId>
-            <version>LATEST</version>
+            <artifactId>jdaextension</artifactId>
+            <version>1.31.0</version>
         </dependency>
         <dependency>
             <groupId>dev.lightdream</groupId>
-            <artifactId>MessageBuilder</artifactId>
-            <version>LATEST</version>
+            <artifactId>message-builder</artifactId>
+            <version>3.1.2</version>
         </dependency>
     </dependencies>
 

@@ -84,12 +84,7 @@ public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
     }
 
     @Override
-    public boolean debug() {
+    public boolean debugToConsole() {
         return config.debug;
-    }
-
-    @Override
-    public void log(String s) {
-        System.out.println(s);
     }
 }
