@@ -6,7 +6,7 @@ import dev.lightdream.jdaextension.dto.CommandArgument;
 import dev.lightdream.jdaextension.dto.context.GuildCommandContext;
 import dev.lightdream.jdaextension.dto.context.PrivateCommandContext;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.BaseGuildMessageChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 
@@ -23,13 +23,15 @@ public class AnnounceCommand extends DiscordCommand {
 
     @Override
     public void executeGuild(GuildCommandContext guildCommandContext) {
+        System.out.println("LALALALALALALALLALAL");
         long id = Long.parseLong(guildCommandContext.getArgument("message_id").getAsString());
 
-        BaseGuildMessageChannel channel;
+        MessageChannel channel;
         try {
             channel = guildCommandContext.getTextChannel();
         } catch (Exception e) {
-            channel = guildCommandContext.getEvent().getNewsChannel();
+            return;
+            //channel = guildCommandContext.getEvent().getNewsChannel();
         }
 
         channel.retrieveMessageById(id).queue(message -> {
@@ -38,7 +40,7 @@ public class AnnounceCommand extends DiscordCommand {
             if (chanelIDOption != null) {
                 channelID = Long.parseLong(guildCommandContext.getArgument("channel_id").getAsString());
             }
-            BaseGuildMessageChannel textChannel;
+            MessageChannel textChannel;
 
             if (channelID != null) {
                 try {
@@ -59,7 +61,10 @@ public class AnnounceCommand extends DiscordCommand {
                 return;
             }
 
-            textChannel.sendMessage(message).queue();
+            System.out.println(message);
+            System.out.println(message.getContentRaw());
+
+            textChannel.sendMessage(message.getContentRaw()).queue();
 
             sendMessage(guildCommandContext, Main.instance.config.announceSent);
         }, e -> sendMessage(guildCommandContext, Main.instance.config.messageNotFound));

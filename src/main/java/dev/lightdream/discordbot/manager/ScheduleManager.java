@@ -4,7 +4,7 @@ import dev.lightdream.discordbot.Main;
 import dev.lightdream.discordbot.util.PlayerCountHelper;
 import dev.lightdream.lambda.ScheduleUtils;
 import dev.lightdream.logger.Logger;
-import net.dv8tion.jda.api.entities.GuildChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
 
 
 public class ScheduleManager {

@@ -3,7 +3,7 @@ package dev.lightdream.discordbot.dto;
 import dev.lightdream.discordbot.Main;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

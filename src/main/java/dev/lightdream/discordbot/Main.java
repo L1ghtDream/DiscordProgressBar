@@ -16,10 +16,12 @@ import dev.lightdream.logger.LoggableMain;
 import dev.lightdream.logger.Logger;
 import dev.lightdream.messagebuilder.MessageBuilderManager;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import java.io.File;
 import java.util.Arrays;
+
+import static net.dv8tion.jda.api.requests.GatewayIntent.*;
 
 public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
 
@@ -46,7 +48,23 @@ public class Main implements JDAExtensionMain, FileManagerMain, LoggableMain {
         MessageBuilderManager.init(fileManager);
         loadConfigs();
 
-        bot = JDAExtensionMain.generateBot(this);
+        bot = JDAExtensionMain.generateBot(this , Arrays.asList(
+                GUILD_BANS,
+                GUILD_MODERATION,
+                GUILD_EMOJIS_AND_STICKERS,
+                GUILD_WEBHOOKS,
+                GUILD_INVITES,
+                GUILD_VOICE_STATES,
+                GUILD_PRESENCES,
+                GUILD_MESSAGES,
+                GUILD_MESSAGE_REACTIONS,
+                GUILD_MESSAGE_TYPING,
+                DIRECT_MESSAGES,
+                DIRECT_MESSAGE_REACTIONS,
+                DIRECT_MESSAGE_TYPING,
+                MESSAGE_CONTENT,
+                SCHEDULED_EVENTS
+        ));
 
         new DiscordCommandManager(this, Arrays.asList(
                 new CreateBarCommand(),

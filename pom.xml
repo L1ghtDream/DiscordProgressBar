@@ -25,8 +25,8 @@
         <!-- LightDream -->
         <dependency>
             <groupId>dev.lightdream</groupId>
-            <artifactId>jdaextension</artifactId>
-            <version>1.31.0</version>
+            <artifactId>jda-extension</artifactId>
+            <version>1.32.0</version>
         </dependency>
         <dependency>
             <groupId>dev.lightdream</groupId>

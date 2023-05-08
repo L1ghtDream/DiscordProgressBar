@@ -7,7 +7,8 @@ import dev.lightdream.jdaextension.dto.CommandArgument;
 import dev.lightdream.jdaextension.dto.context.GuildCommandContext;
 import dev.lightdream.jdaextension.dto.context.PrivateCommandContext;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 import java.util.Arrays;
@@ -23,19 +24,19 @@ public class CreateBarCommand extends DiscordCommand {
 
     @Override
     public void executeGuild(GuildCommandContext guildCommandContext) {
-        String name = guildCommandContext.getArgument("name").getAsString();
-        if (BarHelper.exists(name)) {
-            sendMessage(guildCommandContext, Main.instance.config.barExists);
-            return;
-        }
-
-        MessageChannel channel = guildCommandContext.getArgument("channel").getAsMessageChannel();
-        if (channel == null) {
-            channel = guildCommandContext.getTextChannel();
-        }
-
-        BarHelper.createBar(name, channel);
-        sendMessage(guildCommandContext, Main.instance.config.barCreated);
+        //String name = guildCommandContext.getArgument("name").getAsString();
+        //if (BarHelper.exists(name)) {
+        //    sendMessage(guildCommandContext, Main.instance.config.barExists);
+        //    return;
+        //}
+//
+        //GuildChannel channel = guildCommandContext.getArgument("channel").getAsChannel();
+        //if (channel == null) {
+        //    channel = guildCommandContext.getTextChannel();
+        //}
+//
+        //BarHelper.createBar(name, channel);
+        //sendMessage(guildCommandContext, Main.instance.config.barCreated);
     }
 
     @Override

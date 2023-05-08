@@ -2,7 +2,7 @@ package dev.lightdream.discordbot.util;
 
 import dev.lightdream.discordbot.Main;
 import dev.lightdream.discordbot.dto.Bar;
-import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 
 public class BarHelper {
 
